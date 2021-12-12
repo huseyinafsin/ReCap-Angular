@@ -1,17 +1,17 @@
 <div *ngIf="dataLoaded == false" class="spinner-border text-danger" role="status">
   <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded==true" class="table">
-  <thead>
-    <tr>
-      <th>Brand Id</th>
-      <th>Brand Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let brand of brands">
-      <td>{{brand.id}}</td>
-      <td> {{brand.name}} </td>
-    </tr>
-  </tbody>
-</table>
+<div class="mb-3">
+  <label for="filterText" class="form-label">Renk Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"  placeholder="arama ifadesi giriniz">
+</div>
+<div *ngIf="filterText" class="alert alert-success" >
+  {{filterText}} aradınız
+</div>
+<ul *ngIf="dataLoaded==true" class="list-group">
+  <li (click)="setAllBrandClass()" [class]="getAllBrandClass()" routerLink="/cars" >Tüm Markalar</li>
+  <li (click)="setCurrentBrandClass(brand)"
+  routerLink="/cars/brand/{{brand.id}}"
+  *ngFor="let brand of brands | brandFilter:filterText"
+  [class]="getCurrentBrandClass(brand)">{{brand.name}}</li>
+</ul>

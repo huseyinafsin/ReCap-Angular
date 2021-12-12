@@ -1,17 +1,18 @@
+
 <div *ngIf="dataLoaded == false" class="spinner-border text-danger" role="status">
   <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded==true" class="table">
-  <thead>
-    <tr>
-      <th>Color Id</th>
-      <th>Color Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let color of colors">
-      <td>{{color.id}}</td>
-      <td>{{color.name}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="mb-3">
+  <label for="filterText" class="form-label">Renk Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"  placeholder="arama ifadesi giriniz">
+</div>
+<div *ngIf="filterText" class="alert alert-success" >
+  {{filterText}} aradınız
+</div>
+<ul *ngIf="dataLoaded==true" class="list-group">
+  <li (click)="setAllColorClass()" [class]="getAllColorClass()" routerLink="/cars" >Tüm Renkler</li>
+  <li   (click)="setCurrentColorClass(color)"
+  routerLink="cars/color/{{color.id}}"
+  *ngFor="let color of colors |colorFilter:filterText"
+  [class]="getCurrentColorClass(color)">{{color.name}}</li>
+</ul>

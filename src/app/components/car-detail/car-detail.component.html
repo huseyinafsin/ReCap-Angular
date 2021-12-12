@@ -1,0 +1,66 @@
+
+
+ <div class="card rounded-0">
+  <div class="card-header text-center rounded-0">
+    <div class="card-body">
+  <ngb-carousel>
+    <ng-template *ngFor="let image of car.images" ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="apiPath+image.imagePath" alt="Random first slide" class="d-block w-100"  style="width: auto; height: auto;">
+      </div>
+    </ng-template>
+    <ng-template *ngIf="car.images.length==0"  ngbSlide>
+      <div  class="picsum-img-wrapper">
+        <img [src]="apiPath+'Images/CarImages/default.jpg'"  alt="Random first slide" class="d-block w-100"  style="width: auto; height: auto;">
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+  <div *ngIf="dataLoaded == true" class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button routerLink="/rental/{{ car.id}}" class="btn btn-success" type="button">Kirala</button>
+  </div>
+  <table *ngIf="dataLoaded == true" class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Araba Adı</th>
+        <td>{{car.carName}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Marka</th>
+        <td>{{car.brandName}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Model Yılı</th>
+        <td>{{car.modelYear}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Renk</th>
+        <td>{{car.colorName}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Kiralama Ücreti</th>
+        <td>{{car.dailyPrice}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Açıklama</th>
+        <td>{{car.description}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div></div></div>
+
+
+<script>
+  $scope.carouselNext = function() {
+  $('#carousel-main').carousel('carousel-control-prev');
+}
+$scope.carouselPrev = function() {
+  $('#carousel-main').carousel('carousel-control-prev');
+}
+</script>

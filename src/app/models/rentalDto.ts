@@ -1,4 +1,4 @@
-export interface Rental{
+export interface RentalDto{
   brandName:string;
   customerName:string;
   rentDate:Date;
