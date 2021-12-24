@@ -10,9 +10,9 @@
   {{filterText}} aradınız
 </div>
 <ul *ngIf="dataLoaded==true" class="list-group">
-  <li (click)="setAllColorClass()" [class]="getAllColorClass()" routerLink="/cars" >Tüm Renkler</li>
+  <li (click)="setAllColorClass()" [class]="getAllColorClass()" routerLink="/" >Tüm Renkler</li>
   <li   (click)="setCurrentColorClass(color)"
-  routerLink="cars/color/{{color.id}}"
+  routerLink="/color/{{color.id}}"
   *ngFor="let color of colors |colorFilter:filterText"
   [class]="getCurrentColorClass(color)">{{color.name}}</li>
 </ul>

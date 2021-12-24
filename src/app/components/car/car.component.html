@@ -21,7 +21,7 @@
       </div>
       <div class="col-lg">
         <div class="d-grid">
-          <button  id="btnFilter" routerLink="rentals{{0}}" class="btn btn-primary btn-sm">Filter</button>
+          <button  id="btnFilter" [routerLink]="routeFilter()" class="btn btn-primary btn-sm">Filter</button>
         </div>
       </div>
     </div>
@@ -47,15 +47,14 @@
           </li>
         </ul>
         <div class="card-body text-center">
-          <button [routerLink]="" class="btn btn-outline-primary btn-sm shadow-none mx-1">
+          <button routerLink="/cars/details/{{car.id}}" class="btn btn-outline-primary btn-sm shadow-none mx-1">
             Detaylar
           </button>
-          <button data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal' + car.id" class="btn btn-outline-secondary btn-sm mx-1"
+          <!-- <button data-bs-toggle="modal" [attr.data-bs-target]="'#exampleModal' + car.id" class="btn btn-outline-secondary btn-sm mx-1"
             routerLink="/rentals/rent/{{car.id}}"
           >
             Kirala
-          </button>
-          <app-rentadd [car]="car"></app-rentadd>
+          </button> -->
         </div>
       </div>
     </div>

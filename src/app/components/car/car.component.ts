@@ -100,7 +100,7 @@ export class CarComponent implements OnInit {
     return this.images.find(x=>x.carId===carId).imagePath;
   }
   getCarDetailById(carId:number){
-    return this.carService.getCarDetailById(carId).subscribe(response=>{
+    return this.carService.getCarDetailsById(carId).subscribe(response=>{
       this.car = response.data
       this.dataLoaded = true
     })
@@ -129,10 +129,10 @@ export class CarComponent implements OnInit {
     if( this.filterBrandId ==0 && this.filterColorId ==0)
       return ""
     else  if( this.filterBrandId ==0 && this.filterColorId !=0)
-      return `/cars/color/${this.filterColorId}`
+      return `/color/${this.filterColorId}`
     else  if( this.filterBrandId !=0 && this.filterColorId ==0)
-        return `/cars/brand/${this.filterBrandId}`
+        return `/brand/${this.filterBrandId}`
     else
-      return  " "
+      return  `/brand/${this.filterBrandId}/color/${this.filterColorId}`
   }
 }

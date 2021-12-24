@@ -1,0 +1,25 @@
+<div *ngIf="dataLoaded == false" class="spinner-border text-danger" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+<div *ngIf="colors!=null" class="container">
+  <br>
+  <button style="float:right; margin-bottom: 1%; width: max-content;"  (click)="addColor()" class="btn btn-success ">Renk Ekle</button>
+  <table class="table table-bordered">
+    <thead class="thead-light ">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">İsim</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let color of colors">
+      <tr>
+        <th scope="row">{{color.id}}</th>
+        <td>{{color.name}}</td>
+        <td><button (click)="updateColor(color.id)" class="btn btn-warning">Düzenle</button></td>
+        <td><button (click)="deleteColor(color)" class="btn btn-danger">Sil</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>

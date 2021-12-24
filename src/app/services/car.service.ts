@@ -30,7 +30,7 @@ export class CarService {
     return this.httpClient.get<ListResponseModel<CarDetail>>(path)
   }
 
-  getCarDetailById(carId:number):Observable<SingleResponseModel<CarDetail>>{
+  getCarDetailsById(carId:number):Observable<SingleResponseModel<CarDetail>>{
     let path = `${this.apiServiceUrl}/cardetailsbyid?carId=${carId}`
     return this.httpClient.get<SingleResponseModel<CarDetail>>(path)
   }

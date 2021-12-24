@@ -1,59 +1,78 @@
 
+<div class="content">
+  <div class="container">
+    <div class="row m-0">
+        <div class="col-lg-9 pb-5 pe-lg-5">
+            <div class="row">
+                <div class="col-12 p-12">
+                  <ngb-carousel>
+                    <ng-template *ngFor="let image of images" ngbSlide>
+                      <div class="picsum-img-wrapper">
+                        <img [src]="apiPath+image.imagePath" alt="Random first slide" class="d-block w-100"  style="width: auto; height: auto;">
+                      </div>
+                    </ng-template>
+                    <ng-template *ngIf="images.length==0"  ngbSlide>
+                      <div  class="picsum-img-wrapper">
+                        <img [src]="apiPath+'Images/CarImages/default.jpg'"  alt="">
+                      </div>
+                    </ng-template>
+                  </ngb-carousel>
+                </div>
+                <br>
+                <div class="row m-0 bg-light">
+                    <div class="col-md-4 col-6 ps-30 pe-0 my-4">
+                        <p class="text-muted">Marka</p>
+                        <p class="h5">{{car?.brandName}}</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">Model</p>
+                        <p class="h5 m-0">{{car?.carName}}</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">Model Yılı</p>
+                        <p class="h5 m-0">{{car?.modelYear}}</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">Renk</p>
+                        <p class="h5 m-0">{{car?.colorName}}</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">Günlük Kira</p>
+                        <p class="h5 m-0">{{car?.dailyPrice}}<span class="ps-1">$</span></p>
+                    </div>
 
- <div class="card rounded-0">
-  <div class="card-header text-center rounded-0">
-    <div class="card-body">
-  <ngb-carousel>
-    <ng-template *ngFor="let image of car.images" ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img [src]="apiPath+image.imagePath" alt="Random first slide" class="d-block w-100"  style="width: auto; height: auto;">
-      </div>
-    </ng-template>
-    <ng-template *ngIf="car.images.length==0"  ngbSlide>
-      <div  class="picsum-img-wrapper">
-        <img [src]="apiPath+'Images/CarImages/default.jpg'"  alt="Random first slide" class="d-block w-100"  style="width: auto; height: auto;">
-      </div>
-    </ng-template>
-  </ngb-carousel>
-
-  <div *ngIf="dataLoaded == true" class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button routerLink="/rental/{{ car.id}}" class="btn btn-success" type="button">Kirala</button>
+                  <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 ">
+          <form [formGroup]="dateForm">
+            <div class="mb-3">
+              <label for="rentDate">Rent Date</label>
+              <input type="date" class="form-control" id="rentDate" [max]="currentDate" [min]="2022-01-01" formControlName="rentDate">
+            </div>
+            <div class="mb-3">
+              <label for="rentDate">İsim</label>
+              <br>
+              <input type="date" class="form-control" id="returnDate" formControlName="returnDate">
+            </div>
+            <div class="row m-0">
+              <div class="col-12 mb-4 p-0">
+                  <button class="btn btn-primary" type="submit" (click)="rent()">Kirala<span class="fas fa-arrow-right ps-2"></span> </button>
+              </div>
+          </div>
+          <br>
+          <div>
+            <p class="h5 ">Açıklama</p>
+            <span class="m-0"></span>
+            <p class="lead" style="background-color: aliceblue; font-size: medium;">{{car?.description}}</p>
+          </div>
+          </form>
+        </div>
+    </div>
   </div>
-  <table *ngIf="dataLoaded == true" class="table table-striped">
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Araba Adı</th>
-        <td>{{car.carName}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Marka</th>
-        <td>{{car.brandName}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Model Yılı</th>
-        <td>{{car.modelYear}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Renk</th>
-        <td>{{car.colorName}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Kiralama Ücreti</th>
-        <td>{{car.dailyPrice}}</td>
-      </tr>
-      <tr>
-        <th scope="row">Açıklama</th>
-        <td>{{car.description}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div></div></div>
+</div>
+
 
 
 <script>
@@ -64,3 +83,6 @@ $scope.carouselPrev = function() {
   $('#carousel-main').carousel('carousel-control-prev');
 }
 </script>
+
+
+
