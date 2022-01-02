@@ -16,7 +16,6 @@
         <div class="form-group">
           <label for="brandId">Firma</label>
           <select class="form-select rounded-0" id="brandId" formControlName="brandId" aria-label="Default select example">
-            <option selected  value="{{car?.brandId}}">{{car?.brandName}}</option>
             <option value="{{brand.id}}" *ngFor="let brand of brands">{{brand.name}}</option>
           </select>
         </div>
@@ -24,7 +23,6 @@
         <div class="form-group">
           <label for="colorId">Renk</label>
           <select class="form-select" id="colorId" formControlName="colorId" aria-label="Default select example">
-            <option selected value="{{car?.colorId}}">{{car?.colorName}}</option>
             <option value="{{color.id}}" *ngFor="let color of colors">{{color.name}}</option>
           </select>
         </div>

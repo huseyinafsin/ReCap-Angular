@@ -32,7 +32,7 @@ export class CarEditComponent implements OnInit, OnDestroy {
   apiUrl:string =environment.Url
   progress: number = 0;
   selectedFile:File= null
-
+  @ViewChild('colorOpt') colorOpt: HTMLSelectElement;
   constructor(private carService:CarService,
     private carImageService:CarImageService,
     private colorService:ColorService,
@@ -52,6 +52,7 @@ export class CarEditComponent implements OnInit, OnDestroy {
         this.editCarForm()
         this.getColors()
         this.getBrands()
+        this.editCar()
       }
     });
   }
@@ -88,12 +89,16 @@ export class CarEditComponent implements OnInit, OnDestroy {
     this.carService.getCarDetailsById(carId).subscribe(response=>{
       this.car = response.data;
       this.carId = response.data.id;
+      console.log("brandİd"+this.car.carName)
       this.carEditForm.patchValue({
         carName: this.car.carName,
+        brandId:this.car.brandId,
+        colorId:2,
         modelYear : this.car.modelYear,
         daiyPrice :this.car.dailyPrice,
         description : this.car.description
       })
+
     });
   }
   removeImage(carImage:CarImage){
@@ -130,6 +135,7 @@ export class CarEditComponent implements OnInit, OnDestroy {
 
   editCar(){
     this.carEditForm.valueChanges.pipe().subscribe((value) => {
+      console.log(value)
       let carModel = Object.assign({}, this.carEditForm.value)
       let car:Car = {
         id:this.car.id,
