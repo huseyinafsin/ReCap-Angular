@@ -2,7 +2,9 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 <div class="mb-3">
-  <label for="filterText" class="form-label">Renk Ara</label>
+  <div class="form-control" style="background-color: #343a40">
+    <label for="filterText" style="color: aliceblue;"  class="form-label">Firma Ara</label>
+  </div>
   <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText"  placeholder="arama ifadesi giriniz">
 </div>
 <div *ngIf="filterText" class="alert alert-success" >

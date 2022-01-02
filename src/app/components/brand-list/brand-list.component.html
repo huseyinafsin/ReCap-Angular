@@ -4,20 +4,22 @@
 <div *ngIf="brands!=null" class="container">
   <br>
   <button style="float:right; margin-bottom: 1%;width: max-content;" (click)="addBrand()"  class="btn btn-success">Firma Ekle</button>
-  <table class="table table-bordered ">
-    <thead class="thead"  >
+  <table class="table table-striped">
+    <thead class="thead-dark"  >
       <tr>
         <th scope="col">#</th>
         <th scope="col">İsim</th>
-        <th scope="col"></th>
+        <th scope="col"> </th>
+        <th scope="col"> </th>
       </tr>
     </thead>
     <tbody *ngFor="let brand of brands">
       <tr>
         <th scope="row">{{brand.id}}</th>
         <td>{{brand.name}}</td>
-        <td><button class="btn btn-warning" (click)="updateBrand(brand.id)">Düzenle</button></td>
-        <td><button class="btn btn-danger" style="width: auto;" (click)="deleteBrand(brand)">Sil</button></td>
+
+        <td><a (click)="updateBrand(brand.id)" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a></td>
+        <td><a (click)="deleteBrand(brand)" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a></td>
       </tr>
 
     </tbody>

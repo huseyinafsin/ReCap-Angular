@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto|Varela+Round");
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+table.table td button:hover {
+	color: #2196F3;
+}
+table.table td a.edit {
+	color: #FFC107;
+}
+
+table.table td a.delete {
+	color: #F44336;
+}

@@ -1,0 +1,67 @@
+
+<div class="container" style="margin-top: 3%;">
+  <div class="card">
+    <div class="card-header" style="background-color: #343a40;">
+      <h3 class="snippet-name" style="color: aliceblue; text-align: center;">Araba Ekleme</h3>
+    </div>
+    <div class="card-body" >
+      <form [formGroup]="carAddForm">
+
+        <div class="form-group">
+          <label for="carName">Model</label>
+          <input type="text"  class="form-control" id="carName" formControlName="carName"  placeholder="Model ismi">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="brandId">Firma</label>
+          <select  class="form-select" id="brandId" formControlName="brandId" aria-label="Default select example">
+            <option selected disabled>Marka seçiniz</option>
+            <option ngValue="{{brand.id}}" *ngFor="let brand of brands" >{{brand.name}}</option>
+          </select>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="colorId">Renk</label>
+          <select  class="form-select" id="colorId" formControlName="colorId" aria-label="Default select example">
+            <option selected disabled>Marka seçiniz</option>
+            <option ngValue="{{color.id}}" *ngFor="let color of colors" >{{color.name}}</option>
+          </select>
+         </div>
+        <br>
+        <div class="form-group">
+          <label for="modelYear">Model Yılı</label>
+          <input type="number" class="form-control" id="modelYear" formControlName="modelYear" placeholder="Model Yılı">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="daiyPrice">Kirama Ücreti</label>
+          <input type="number" class="form-control" id="daiyPrice" formControlName="daiyPrice" placeholder="Kirama Ücreti">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="description">Açıklama</label>
+          <textarea rows="4" cols="50"  class="form-control" id="description" formControlName="description" placeholder="Açıklama"></textarea>
+        </div>
+        <br>
+        <!-- <div class="form-group">
+          <label for="images">Görsel Ekle</label>
+          <input type="file" #file
+          class="form-control" id="images" multiple="multiple" formControlName="images" placeholder="Görsel seçin">
+        </div> -->
+        <br>
+        <div>
+          <span class="upload" *ngIf="progress > 0"> {{progress}} %</span>
+          <span class="upload" *ngIf="message">{{message}}</span>
+        </div>
+        <div class="card-footer" style="background-color: #343a40;">
+          <div class="form-group" >
+            <button type="submit" class="btn btn-primary" (click)="addCar()" style="align-content: center;">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+</div>

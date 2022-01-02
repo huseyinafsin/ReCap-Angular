@@ -3,7 +3,9 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\components"
+    "\\src\\app\\components",
+    "\\src\\app\\components\\rental"
   ],
+  "SelectedNode": "\\src\\test.ts",
   "PreviewInSolutionExplorer": false
 }

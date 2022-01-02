@@ -1,0 +1,76 @@
+<div class="container" style="margin-top: 3%;">
+  <div class="card">
+    <div class="card-header" style="background-color: #343a40;">
+      <h3 class="snippet-name" style="color: aliceblue; text-align: center;">Araba Düzenleme</h3>
+    </div>
+    <div>
+      <span class="form-control" id="validation" #validation></span>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="carEditForm">
+        <div class="form-group">
+          <label for="carName">Model</label>
+          <input type="text" class="form-control" id="carName" formControlName="carName" placeholder="Model ismi">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="brandId">Firma</label>
+          <select class="form-select rounded-0" id="brandId" formControlName="brandId" aria-label="Default select example">
+            <option selected  value="{{car?.brandId}}">{{car?.brandName}}</option>
+            <option value="{{brand.id}}" *ngFor="let brand of brands">{{brand.name}}</option>
+          </select>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="colorId">Renk</label>
+          <select class="form-select" id="colorId" formControlName="colorId" aria-label="Default select example">
+            <option selected value="{{car?.colorId}}">{{car?.colorName}}</option>
+            <option value="{{color.id}}" *ngFor="let color of colors">{{color.name}}</option>
+          </select>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="modelYear">Model Yılı</label>
+          <input type="number" class="form-control" id="modelYear" formControlName="modelYear" placeholder="Model Yılı">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="daiyPrice">Kirama Ücreti</label>
+          <input type="number" class="form-control" id="daiyPrice" formControlName="daiyPrice"
+            placeholder="Kirama Ücreti">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="description">Açıklama</label>
+          <textarea rows="4" cols="50" class="form-control" id="description" formControlName="description"
+            placeholder="Açıklama"></textarea>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="image">Görsel Ekle</label>
+          <div class="row">
+            <div class="col-md-8">
+              <input type="file" (change)="onFileSelected($event)" class="form-control" id="image" #fileUpload multiple="multiple"
+                formControlName="image" placeholder="Görsel seçin">
+            </div>
+            <div class="col-md-4"><button type="button" (click)="onupload()" style="width:100%;" class="btn btn-success">Yükle</button>
+            </div>
+          </div>
+
+        </div>
+        <div class="progress form-group" *ngIf="progress > 0">
+          <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width.%]="progress">
+          </div>
+        </div>
+        <br>
+        <div *ngFor="let image of images" class="d-flex  flex-wrap">
+          <div class="image-area">
+            <img src="{{apiUrl+image.imagePath}}" style="height: min-content; width: 100%;"
+              class="rounded float-left" alt="...">
+            <a class="remove-image" (click)="removeImage(image)" style="display: inline;">&#215;</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Car } from '../models/car';
 import { CarDetail } from '../models/carDetail';
 import { ListResponseModel } from '../models/listResponseModel';
+import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
@@ -39,4 +41,21 @@ export class CarService {
     let path = `${this.apiServiceUrl}/cardetails`
     return this.httpClient.get<ListResponseModel<CarDetail>>(path)
   }
+
+  add(car:Car):Observable<ResponseModel>{
+    let path = `${this.apiServiceUrl}/add`
+    return this.httpClient.post<ResponseModel>(path,car)
+  }
+
+  delete(car:Car):Observable<ResponseModel>{
+    let path = `${this.apiServiceUrl}/delete`
+    return this.httpClient.post<ResponseModel>(path,car)
+  }
+
+  update(car:Car):Observable<HttpEvent<ResponseModel>>{
+    let path = `${this.apiServiceUrl}/update`
+    return this.httpClient.post<HttpEvent<ResponseModel>>(path,car)
+  }
+
+
 }

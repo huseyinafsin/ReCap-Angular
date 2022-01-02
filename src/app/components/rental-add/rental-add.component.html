@@ -1,3 +1,4 @@
+
 <div class="content">
   <div class="container">
     <div class="row m-0">
@@ -40,28 +41,27 @@
             <div class="row m-0">
                 <div class="col-12 px-4">
                     <div class="d-flex align-items-end mt-4 mb-2">
-                        <p class="h4 m-0"><span class="pe-1">ZAZ</span><span class="pe-1">966</span><span class="pe-1">B</span></p>
-                        <P class="ps-3 textmuted">1L</P>
+                        <p class="h4 m-0"><span class="pe-1">{{car?.brandName}}</span><span class="pe-1"> - </span><span class="pe-1">{{car?.carName}}</span></p>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
-                        <p class="textmuted">Qty</p>
-                        <p class="fs-14 fw-bold">1</p>
+                        <p class="textmuted">Gün Sayısı</p>
+                        <p class="fs-14 fw-bold">{{numberOfDay}}</p>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
-                        <p class="textmuted">Subtotal</p>
-                        <p class="fs-14 fw-bold"><span class="fas fa-dollar-sign pe-1"></span>1,450</p>
+                        <p class="textmuted">Ara Toplam</p>
+                        <p class="fs-14 fw-bold">{{subAmount}} ₺ </p>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
-                        <p class="textmuted">Shipping</p>
-                        <p class="fs-14 fw-bold">Free</p>
+                        <p class="textmuted">KDV Oranı</p>
+                        <p class="fs-14 fw-bold">{{vat}}</p>
                     </div>
                     <div class="d-flex justify-content-between mb-2">
-                        <p class="textmuted">Promo code</p>
-                        <p class="fs-14 fw-bold">-<span class="fas fa-dollar-sign px-1"></span>100</p>
+                        <p class="textmuted">KDV Tutarı</p>
+                        <p class="fs-14 fw-bold">+{{vatAdded}} ₺</p>
                     </div>
                     <div class="d-flex justify-content-between mb-3">
-                        <p class="textmuted fw-bold">Total</p>
-                        <div class="d-flex align-text-top "> <span class="fas fa-dollar-sign mt-1 pe-1 fs-14 "></span><span class="h4">1,350</span> </div>
+                        <p class="textmuted fw-bold">Toplam</p>
+                        <div class="d-flex align-text-top "> <span class="h4">{{totalAmount}} ₺</span> </div>
                     </div>
                 </div>
                 <div class="col-12 px-0">
@@ -102,7 +102,7 @@
                     </div>
                     <div class="row m-0">
                         <div class="col-12 mb-4 p-0">
-                            <button class="btn btn-primary h4" type="submit" (click)="addRental()" style="font-weight: bolder;">Purchase<span class="fas fa-arrow-right ps-2"></span> </button>
+                            <button class="btn btn-primary h4" type="submit" (click)="addRental()" style="font-weight: bolder;">İşlemi Tamamla<span class="fas fa-arrow-right ps-2"></span> </button>
                         </div>
                     </div>
                 </div>

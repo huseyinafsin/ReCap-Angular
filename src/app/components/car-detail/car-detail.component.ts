@@ -74,6 +74,7 @@ export class CarDetailComponent implements OnInit {
           this.toasterService.success("Yönlendiriyorsunuz","Başarılı");
           this.route.navigate(['rentals/rent/'+this.car.id])
           localStorage.setItem('dateModel',JSON.stringify(dateModel))
+          localStorage.setItem('carId',JSON.stringify(this.car.id))
         }else{
           this.toasterService.error( "Bu araç bu tarihler arasında zaten kiralanmış","Hata !")
         }
@@ -90,6 +91,11 @@ export class CarDetailComponent implements OnInit {
     }
   }
 
+  getMinDate(){
+    var today  = new Date();
+    today.setDate(today.getDate() + 1);
+    return today.toISOString().slice(0,10)
+  }
 }
 
 

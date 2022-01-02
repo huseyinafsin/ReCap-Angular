@@ -4,6 +4,6 @@ export class Car{
   brandId:number
   colorId:number
   modelYear:number
-  daiyPrice:null
+  daiyPrice:number
   description:string
 }
