@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {NgbPaginationModule, NgbAlertModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,6 +25,10 @@ import { BrandListComponent } from './components/brand-list/brand-list.component
 import { CarListComponent } from './components/car-list/car-list.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarEditComponent } from './components/car-edit/car-edit.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -45,6 +49,8 @@ import { CarEditComponent } from './components/car-edit/car-edit.component';
     CarListComponent,
     CarAddComponent,
     CarEditComponent,
+    LoginComponent,
+    RegisterComponent,
     ],
   imports: [
     BrowserModule,
@@ -61,7 +67,13 @@ import { CarEditComponent } from './components/car-edit/car-edit.component';
       positionClass :'toast-bottom-right'
     })
   ],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass :  AuthInterceptor,
+      multi : true
+    }
+],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
