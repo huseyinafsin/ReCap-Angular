@@ -1,13 +1,16 @@
-<div class="container">
+  <!-- Nav Start-->
   <app-navi></app-navi>
+  <!-- Nav End-->
 
-  <div class="row">
-    <div class="col-md-3" >
-      <app-color></app-color><br>
-      <app-brand></app-brand>
-    </div>
-    <div class="col-md-9">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
+
+  <!-- Router Start -->
+  <router-outlet></router-outlet>
+  <!-- Router End -->
+
+  <!-- Footer Start -->
+  <app-footer></app-footer>
+  <!-- Footer End -->
+
+
+  <!-- Back to Top -->
+  <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>

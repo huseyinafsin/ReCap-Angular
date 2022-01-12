@@ -25,6 +25,11 @@ import { BrandListComponent } from './components/brand-list/brand-list.component
 import { CarListComponent } from './components/car-list/car-list.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarEditComponent } from './components/car-edit/car-edit.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SearchComponent } from './components/search/search.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +50,11 @@ import { CarEditComponent } from './components/car-edit/car-edit.component';
     CarListComponent,
     CarAddComponent,
     CarEditComponent,
+    FooterComponent,
+    SearchComponent,
+    AboutComponent,
+    ContactComponent,
+    HomeComponent,
     ],
   imports: [
     BrowserModule,
