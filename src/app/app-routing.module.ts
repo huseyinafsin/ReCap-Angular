@@ -9,7 +9,12 @@ import { CarListComponent } from './components/car-list/car-list.component';
 import { CarComponent } from './components/car/car.component';
 import { HomeComponent } from './components/home/home.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
+<<<<<<< HEAD
 import { ContactComponent } from './components/contact/contact.component';
+=======
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+>>>>>>> 0b7dc44f81cece3771614c909415674047a00544
 import { RentalAddComponent } from './components/rental-add/rental-add.component';
 import { RentalComponent } from './components/rental/rental.component';
 
@@ -30,6 +35,8 @@ const routes: Routes = [
     {path:"brand/:brandId/color/:colorId",component:CarComponent},
     {path:"rentals",component:RentalComponent},
     {path:"rentals/rent/:id",component: RentalAddComponent},
+    {path:"login",component: LoginComponent},
+    {path:"register",component: RegisterComponent}
 
 ]
 

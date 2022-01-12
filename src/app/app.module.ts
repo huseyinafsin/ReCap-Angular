@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {NgbPaginationModule, NgbAlertModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,11 +25,18 @@ import { BrandListComponent } from './components/brand-list/brand-list.component
 import { CarListComponent } from './components/car-list/car-list.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarEditComponent } from './components/car-edit/car-edit.component';
+<<<<<<< HEAD
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
+=======
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
+
+>>>>>>> 0b7dc44f81cece3771614c909415674047a00544
 
 @NgModule({
   declarations: [
@@ -50,11 +57,16 @@ import { HomeComponent } from './components/home/home.component';
     CarListComponent,
     CarAddComponent,
     CarEditComponent,
+<<<<<<< HEAD
     FooterComponent,
     SearchComponent,
     AboutComponent,
     ContactComponent,
     HomeComponent,
+=======
+    LoginComponent,
+    RegisterComponent,
+>>>>>>> 0b7dc44f81cece3771614c909415674047a00544
     ],
   imports: [
     BrowserModule,
@@ -71,7 +83,13 @@ import { HomeComponent } from './components/home/home.component';
       positionClass :'toast-bottom-right'
     })
   ],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass :  AuthInterceptor,
+      multi : true
+    }
+],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
