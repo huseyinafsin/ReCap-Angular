@@ -1,22 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { AboutComponent } from './components/about/about.component';
-import { BrandListComponent } from './components/brand-list/brand-list.component';
-import { CarAddComponent } from './components/car-add/car-add.component';
+import { BrandListComponent } from './components/admin/brand-list/brand-list.component';
+import { CarAddComponent } from './components/admin/car-add/car-add.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
-import { CarEditComponent } from './components/car-edit/car-edit.component';
-import { CarListComponent } from './components/car-list/car-list.component';
+import { CarEditComponent } from './components/admin/car-edit/car-edit.component';
+import { CarListComponent } from './components/admin/car-list/car-list.component';
 import { CarComponent } from './components/car/car.component';
 import { HomeComponent } from './components/home/home.component';
-import { ColorListComponent } from './components/color-list/color-list.component';
-<<<<<<< HEAD
+import { ColorListComponent } from './components/admin/color-list/color-list.component';
 import { ContactComponent } from './components/contact/contact.component';
-=======
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
->>>>>>> 0b7dc44f81cece3771614c909415674047a00544
-import { RentalAddComponent } from './components/rental-add/rental-add.component';
+import { RentalAddComponent } from './components/admin/rental-add/rental-add.component';
 import { RentalComponent } from './components/rental/rental.component';
+import { CustomerListComponent } from './components/admin/customer-list/customer-list.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
     {path:"",pathMatch:"full",component:HomeComponent},
@@ -24,6 +23,8 @@ const routes: Routes = [
     {path:"about",component:AboutComponent},
     {path:"contact",component:ContactComponent},
     {path:"car",component:CarComponent},
+    {path:"profile",component:ProfileComponent},
+    {path:"admin/customers",component:CustomerListComponent},
     {path:"cars",component:CarListComponent},
     {path:"cars/edit/:id",component:CarEditComponent},
     {path:"cars/add",component:CarAddComponent},

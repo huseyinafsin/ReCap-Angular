@@ -6,4 +6,5 @@ export class Car{
   modelYear:number
   daiyPrice:number
   description:string
+  minFindexScore:number
 }

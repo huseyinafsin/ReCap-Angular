@@ -4,16 +4,22 @@
 <table *ngIf="dataLoaded==true" class="table">
   <thead>
     <tr>
-      <th>Customer Id</th>
-      <th>User Id</th>
-      <th>Company Name</th>
+      <th>#</th>
+      <th>İsim</th>
+      <th>Soyisim</th>
+      <th>Email</th>
+      <th>Firma </th>
+      <th>Findeks Skoru</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let customer of customers">
-      <td> {{customer.id}} </td>
-      <td> {{customer.userId}} </td>
+      <td> {{customer.customerId}} </td>
+      <td> {{customer.firstName}} </td>
+      <td> {{customer.lastName}} </td>
+      <td> {{customer.email}} </td>
       <td> {{customer.companyName}} </td>
+      <td> {{customer.findexScore}} </td>
     </tr>
   </tbody>
 </table>

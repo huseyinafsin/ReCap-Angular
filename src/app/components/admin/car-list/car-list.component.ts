@@ -51,7 +51,8 @@ export class CarListComponent implements OnInit {
            colorId:car.colorId,
            daiyPrice:car.dailyPrice,
            modelYear:car.modelYear,
-           description:car.description
+           description:car.description,
+           minFindexScore:car.minFindexScore
         }
         this.carService.delete(_car).subscribe(response =>{
                   if(response.success){

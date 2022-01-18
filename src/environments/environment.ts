@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl :'https://localhost:44310/api',
-  Url:'https://localhost:44310/'
+  Url:'https://localhost:44310/',
+  findexScore:1500
 };
 
 /*

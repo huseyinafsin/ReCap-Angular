@@ -50,28 +50,46 @@
                     <a href="/about" class="nav-item nav-link">Hakkımızda</a>
                     <a href="/contact" class="nav-item nav-link">İletişim</a>
                     <ul class="navbar-nav mr-right">
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Login
+                      <li *ngIf="isLoggedIn | async; else notLoggedIn" class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-primary" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="far fa-user-circle"></i>{{" "+currentUser.name}}
                         </a>
-                        <div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
-                            <form class="form-horizontal" [formGroup]="loginForm" method="post" accept-charset="UTF-8">
-                                <input class="form-control login" type="text" formControlName="email" name="email" placeholder="Username.." /><br>
-                                <input class="form-control login" type="password" formControlName="password" name="password" placeholder="Password.."/><br>
-                               <div class="row">
-                                 <div class="col-md-6">
-                                  <input class="btn btn-primary" (click)="login()" type="submit" name="submit" value="Login" />
-                                 </div>
-                                 <div class="col-md-6">
-                                  <input class="btn btn-secondary" routerLink="/register" value="Register" />
-                                 </div>
-                                </div>
-                            </form>
+                        <div  class="dropdown-menu" style="padding: 15px; padding-bottom: 10px; float: center;">
+                          <a
+                            class="dropdown-item"
+                            href="/profile"><span
+                            class="fas fa-user"></span> Profile</a>
+                          <a
+                            class="dropdown-item"
+                            (click)="logOut()"
+                            href="/logout"><span
+                            class="fas fa-sign-out-alt"></span> Çıkış</a>
                         </div>
                       </li>
+                      <ng-template #notLoggedIn>
+                        <li  class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle text-primary" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false"> GİRİŞ YAp
+                          </a>
+                          <div  class="dropdown-menu" style="padding: 15px; padding-bottom: 10px; float: center;">
+                              <form  class="form-horizontal" [formGroup]="loginForm" method="post" accept-charset="UTF-8">
+                                  <input class="form-control login" type="text" formControlName="email" name="email" placeholder="Username.." /><br>
+                                  <input class="form-control login" type="password" formControlName="password" name="password" placeholder="Password.."/><br>
+                                 <div style="padding:6px; ">
+                                    <input class="btn btn-primary" (click)="login()" type="submit" name="submit" value="Giriş"
+                                    [disabled]="!loginForm.valid"
+                                    />
+                                    <input class="btn btn-secondary" routerLink="/register" type="submit" name="submit" value="Kayıt Ol" style="width: min-content;" />
+                                  </div>
+                              </form>
+                          </div>
+                      </li>
+                      </ng-template>
                   </ul>
                 </div>
             </div>
+
         </nav>
     </div>
 </div>

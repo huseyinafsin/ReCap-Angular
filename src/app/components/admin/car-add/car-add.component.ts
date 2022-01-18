@@ -74,7 +74,7 @@ export class CarAddComponent implements OnInit {
                      daiyPrice:carModel.daiyPrice,
                      modelYear:carModel.modelYear,
                      description:carModel.description,
-
+                     minFindexScore:carModel.minFindexScore
       }
 
       this.carService.add(car).subscribe(response =>{

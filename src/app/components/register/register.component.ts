@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { RegisterModel } from 'src/app/models/registerModel';
+import { CustomerForRegister } from 'src/app/models/customerForRegister';
 import { AuthService } from 'src/app/services/auth.service';
 import { LocalStrorageService } from 'src/app/services/local-strorage.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +17,7 @@ import { LocalStrorageService } from 'src/app/services/local-strorage.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
+  findexScore:number = environment.findexScore
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -33,6 +34,7 @@ export class RegisterComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.required],
+      companyName: ['', Validators.required],
       password: ['', Validators.required],
       passwordAgain: ['', Validators.required],
     });
@@ -43,16 +45,18 @@ export class RegisterComponent implements OnInit {
 
       if ( model.password == model.passwordAgain) {
 
-        let registerModel: RegisterModel = {
+        let customerForRegister: CustomerForRegister = {
           firstName: model.firstName,
           lastName: model.lastName,
           email: model.email,
+          companyName: model.companyName,
           password: model.password,
+          findexScore: this.findexScore
         };
-        console.log(registerModel);
-        this.authService.register(registerModel).subscribe(
+        console.log(customerForRegister);
+        this.authService.register(customerForRegister).subscribe(
           (response) => {
-            this.toasterService.info(response.message, 'Kullanıcı Eklendi');
+            this.toasterService.info(response.message, 'Müşteri Eklendi');
             this.localStorageService.setData<string>('token', response.data.token);
 
           },

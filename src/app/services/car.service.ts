@@ -42,6 +42,12 @@ export class CarService {
     return this.httpClient.get<ListResponseModel<CarDetail>>(path)
   }
 
+  getTopCheapCars(top:number):Observable<ListResponseModel<CarDetail>>{
+    let path = `${this.apiServiceUrl}/gettopcheapcars?top=${top}`
+    return this.httpClient.get<ListResponseModel<CarDetail>>(path)
+  }
+
+
   add(car:Car):Observable<ResponseModel>{
     let path = `${this.apiServiceUrl}/add`
     return this.httpClient.post<ResponseModel>(path,car)

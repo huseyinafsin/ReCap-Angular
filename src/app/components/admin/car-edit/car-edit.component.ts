@@ -1,7 +1,7 @@
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router,  } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { Brand } from 'src/app/models/brand';
@@ -40,7 +40,7 @@ export class CarEditComponent implements OnInit, OnDestroy {
     private formBuilder:FormBuilder,
     private activatedRoute:ActivatedRoute,
     private toasterService:ToastrService,
-    private router:Router) { }
+    ) { }
 
 
   ngOnInit(): void {
@@ -65,6 +65,7 @@ export class CarEditComponent implements OnInit, OnDestroy {
       colorId:["",Validators.required],
       modelYear:["",Validators.required],
       daiyPrice:["",Validators.required],
+      minFindexScore:["",Validators.required],
       description:["",Validators.required],
       image:[]
     })
@@ -93,9 +94,10 @@ export class CarEditComponent implements OnInit, OnDestroy {
       this.carEditForm.patchValue({
         carName: this.car.carName,
         brandId:this.car.brandId,
-        colorId:2,
+        colorId:this.car.colorId,
         modelYear : this.car.modelYear,
         daiyPrice :this.car.dailyPrice,
+        minFindexScore: this.car.minFindexScore,
         description : this.car.description
       })
 
@@ -145,7 +147,7 @@ export class CarEditComponent implements OnInit, OnDestroy {
         daiyPrice:carModel.daiyPrice,
         modelYear:carModel.modelYear,
         description:carModel.description,
-
+        minFindexScore:carModel.minFindexScore
       }
       if(this.carEditForm.valid){
 

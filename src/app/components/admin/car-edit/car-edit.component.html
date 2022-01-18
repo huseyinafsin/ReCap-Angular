@@ -39,6 +39,12 @@
         </div>
         <br>
         <div class="form-group">
+          <label for="minFindexScore">Minimum Findex Puanı</label>
+          <input type="number" class="form-control" id="minFindexScore" formControlName="minFindexScore"
+            placeholder="Minimum Findex Puanı">
+        </div>
+        <br>
+        <div class="form-group">
           <label for="description">Açıklama</label>
           <textarea rows="4" cols="50" class="form-control" id="description" formControlName="description"
             placeholder="Açıklama"></textarea>
@@ -63,7 +69,7 @@
         <br>
         <div *ngFor="let image of images" class="d-flex  flex-wrap">
           <div class="image-area">
-            <img src="{{apiUrl+image.imagePath}}" style="height: min-content; width: 100%;"
+            <img class="img-responsive" src="{{apiUrl+image.imagePath}}" style="height: min-content; width: 100%;"
               class="rounded float-left" alt="...">
             <a class="remove-image" (click)="removeImage(image)" style="display: inline;">&#215;</a>
           </div>

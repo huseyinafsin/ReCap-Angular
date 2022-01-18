@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/models/customer';
+import { CustomerDetail } from 'src/app/models/customerDetail';
 import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-customer',
-  templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.css']
+  templateUrl: './customer-list.component.html',
+  styleUrls: ['./customer-list.component.css']
 })
-export class CustomerComponent implements OnInit {
+export class CustomerListComponent implements OnInit {
 
-  customers:Customer[] = [];
+  customers:CustomerDetail[] = [];
   dataLoaded:boolean  = false;
 
   constructor(private customerService:CustomerService) { }
@@ -19,7 +20,7 @@ export class CustomerComponent implements OnInit {
   }
 
   getCustomers(){
-    this.customerService.getCustomers().subscribe(response=>{
+    this.customerService.getAllWithDetails().subscribe(response=>{
         this.customers  = response.data;
         this.dataLoaded = true;
     });

@@ -8,23 +8,21 @@
   <div class="container-fluid p-0" style="margin-bottom: 90px;">
       <div id="header-carousel" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-              <div class="carousel-item active">
-                  <img class="w-100" src="assets/img/carousel-1.jpg" alt="Image">
+              <div *ngFor="let car of cars;let i = index" [attr.data-index]="i" class="carousel-item ">
+                  <img class="w-100" [src]="apiUrl+car.images[0].imagePath" alt="Image">
                   <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                       <div class="p-3" style="max-width: 900px;">
-                          <h4 class="text-white text-uppercase mb-md-3">Rent A Car</h4>
-                          <h1 class="display-1 text-white mb-md-4">Best Rental Cars In Your Location</h1>
-                          <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Reserve Now</a>
+                          <h2 class="display-1 text-white mb-md-4">En ucuz 5 araç içerisinde {{i+1}}. Sırada</h2>
+                          <a routerLink="{{'/cars/details/'+ car.id}}" class="btn btn-primary py-md-3 px-md-5 mt-2">Şimdi Kirala</a>
                       </div>
                   </div>
               </div>
-              <div class="carousel-item">
+              <div class="carousel-item active">
                   <img class="w-100" src="assets/img/carousel-2.jpg" alt="Image">
                   <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                       <div class="p-3" style="max-width: 900px;">
-                          <h4 class="text-white text-uppercase mb-md-3">Rent A Car</h4>
-                          <h1 class="display-1 text-white mb-md-4">Quality Cars with Unlimited Miles</h1>
-                          <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Reserve Now</a>
+                          <h2 class="display-1 text-white mb-md-4">Galerimizdeki en ekonomik 5 aracımız sizlerle</h2>
+                          <a routerLink="/car" class="btn btn-primary py-md-3 px-md-5 mt-2">İncele</a>
                       </div>
                   </div>
               </div>
