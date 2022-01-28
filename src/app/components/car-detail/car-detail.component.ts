@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CarDetail } from 'src/app/models/carDetail';
 import { CarService } from 'src/app/services/car.service';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import {FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { CarImage } from 'src/app/models/carImage';
-import { RentalService } from 'src/app/services/rental.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+
 
 
 @Component({
@@ -16,6 +16,30 @@ import { RentalService } from 'src/app/services/rental.service';
   providers: [NgbCarouselConfig]
 })
 export class CarDetailComponent implements OnInit {
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
+  }
   car:CarDetail
   images:CarImage[]=[]
   dataLoaded:boolean = false
@@ -28,10 +52,7 @@ export class CarDetailComponent implements OnInit {
     private carService:CarService,
     private activatedRoute:ActivatedRoute,
     private config: NgbCarouselConfig,
-    private formBuilder:FormBuilder,
-    private toasterService:ToastrService,
-    private rentalService:RentalService,
-    private route:Router) { }
+    private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -65,31 +86,6 @@ export class CarDetailComponent implements OnInit {
     })
   }
 
-  rent(){
-    if(this.dateForm.valid){
-      let dateModel =  Object.assign({},this.dateForm.value)
-
-      this.rentalService.isRentable(this.car.id, dateModel.rentDate, dateModel.returnDate).subscribe(response=>{
-        if(response.data){
-          this.toasterService.success("Yönlendiriyorsunuz","Başarılı");
-          this.route.navigate(['rentals/rent/'+this.car.id])
-          localStorage.setItem('dateModel',JSON.stringify(dateModel))
-          localStorage.setItem('carId',JSON.stringify(this.car.id))
-        }else{
-          this.toasterService.error( "Bu araç bu tarihler arasında zaten kiralanmış","Hata !")
-        }
-      },responseError=>{
-        if(responseError.error.ValidationErrors.lengh > 0){
-          for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
-            this.toasterService.error(responseError.error.ValidationErrors[i].ErrorMessage, "Doğrulama Hatası")
-          }
-        }
-      })
-
-    }else{
-      this.toasterService.error("Formunuz Eksik","Dikkat")
-    }
-  }
 
   getMinDate(){
     var today  = new Date();

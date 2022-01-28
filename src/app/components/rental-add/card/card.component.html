@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <div class="card px-4">
+      <div *ngFor="let card of customerCards"  class="debit-card mb-3">
+          <div (click)="onSelect(card.id)"  class="d-flex flex-column h-100"> <label class="d-block">
+                  <div class="d-flex position-relative">
+                      <div> <img src="assets/img/visa-inc-logo-png-11.png" class="visa" alt="">
+                          <p class="mt-2 mb-4 text-white fw-bold">{{card.cardHolderFullName}}</p>
+                      </div>
+                      <div class="input"> <input type="radio" name="card" id="check"> </div>
+                  </div>
+              </label>
+              <div class="mt-auto fw-bold d-flex align-items-center justify-content-between">
+                  <p style="color: black;">{{card.cardNumber}}</p>
+                  <p style="color: black;">{{card.expireMonth+'/'+card.expireYear}}</p>
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>

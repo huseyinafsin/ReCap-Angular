@@ -1,4 +1,3 @@
-
 <section class="ftco-section ftco-car-details">
   <div class="container">
     <div class="row justify-content-center">
@@ -17,22 +16,12 @@
               </div>
             </ng-template>
           </ngb-carousel>
-          <div class="row">
-            <div class="col-sm-7">
-              <div class="text text-center">
-                <span class="subheading">{{car.brandName}}</span>
-                <h2>{{car.carName}}</h2>
-              </div>
-            </div>
-            <div class="col-sm-5">
-              <button class="btn btn-success btn-lg" style="margin-top: 15px; width: max-content;"> Add</button>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
+    <br>
 
+    <a class="btn btn-primary py-3 px-4 center" style="left: 50%;margin-right: 50%;">Reserve Your Perfect Car</a>
     <div class="row">
       <div class="col-md-12 pills">
         <div class="bd-example bd-example-tabs">
@@ -60,29 +49,29 @@
               <div class="row">
                 <div class="col-md-4">
                   <ul class="features">
-                    <li class="check"><span class="ion-ios-checkmark"></span>Airconditions</li>
-                    <li class="check"><span class="ion-ios-checkmark"></span>Child Seat</li>
-                    <li class="check"><span class="ion-ios-checkmark"></span>GPS</li>
-                    <li class="check"><span class="ion-ios-checkmark"></span>Luggage</li>
-                    <li class="check"><span class="ion-ios-checkmark"></span>Music</li>
+                    <li class="check"><i class="fas fa-brush"></i>{{car.colorName}}</li>
+                    <li class="check"><i class="far fa-copyright"></i>{{car.brandName}}</li>
+                    <li class="check"><i class="fas fa-car"></i>{{car.carName}}</li>
+                    <li class="check"><i class="fas fa-calendar-week"></i>{{car.modelYear}}</li>
+                    <li class="check"> <i class="fas fa-check-double"></i>Music</li>
                   </ul>
                 </div>
                 <div class="col-md-4">
                   <ul class="features">
-                    <li class="check"><span class="ion-ios-checkmark"></span>Seat Belt</li>
-                    <li class="remove"><span class="ion-ios-close"></span>Sleeping Bed</li>
-                    <li class="check"><span class="ion-ios-checkmark"></span>Water</li>
-                    <li class="check"><span class="ion-ios-checkmark"></span>Bluetooth</li>
-                    <li class="remove"><span class="ion-ios-close"></span>Onboard computer</li>
+                    <li class="check"><i class="fas fa-check-double"></i>Seat Belt</li>
+                    <li class="remove"><i class="fas fa-check-double"></i>Sleeping Bed</li>
+                    <li class="check"><i class="fas fa-check-double"></i>Water</li>
+                    <li class="check"><i class="fas fa-check-double"></i>Bluetooth</li>
+                    <li class="remove"><i class="fas fa-check-double"></i>Onboard computer</li>
                   </ul>
                 </div>
                 <div class="col-md-4">
                   <ul class="features">
-                    <li class="check"><span class="ion-ios-checkmark"></span>Audio input</li>
-                    <li class="check"><span class="ion-ios-checkmark"></span>Long Term Trips</li>
-                    <li class="check"><span class="ion-ios-checkmark"></span>Car Kit</li>
-                    <li class="check"><span class="ion-ios-checkmark"></span>Remote central locking</li>
-                    <li class="check"><span class="ion-ios-checkmark"></span>Climate control</li>
+                    <li class="check"><i class="fas fa-check-double"></i>Audio input</li>
+                    <li class="check"><i class="fas fa-check-double"></i>Long Term Trips</li>
+                    <li class="check"><i class="fas fa-check-double"></i>Car Kit</li>
+                    <li class="check"><i class="fas fa-check-double"></i>Remote central locking</li>
+                    <li class="check"><i class="fas fa-check-double"></i>Climate control</li>
                   </ul>
                 </div>
               </div>
@@ -230,7 +219,8 @@
   </div>
 </section>
 
-<section class="ftco-section ftco-no-pt">
+<!-- Related Cars-->
+<!-- <section class="ftco-section ftco-no-pt">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-12 heading-section text-center ftco-animate mb-5">
@@ -239,54 +229,81 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/car-1.jpg);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a href="car-single.html">Mercedes Grand Sedan</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Cheverolet</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide>
+          <div class="col-md-4">
+            <div class="car-wrap rounded ftco-animate">
+              <div class="img rounded d-flex align-items-end">
+              </div>
+              <div class="text">
+                <h2 class="mb-0"><a href="assets/img/car-single.html">Mercedes Grand Sedan</a></h2>
+                <div class="d-flex mb-3">
+                  <span class="cat">Cheverolet</span>
+                  <p class="price ml-auto">$500 <span>/day</span></p>
+                </div>
+                <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
+                    href="assets/img/car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
+              </div>
             </div>
-            <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
-                href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
+          </div>
+        </ng-template>
+
+        <ng-template carouselSlide>
+          <div class="col-md-4">
+          <div class="car-wrap rounded ftco-animate">
+            <div class="img rounded d-flex align-items-end">
+            </div>
+            <div class="text">
+              <h2 class="mb-0"><a href="assets/img/car-single.html">Range Rover</a></h2>
+              <div class="d-flex mb-3">
+                <span class="cat">Subaru</span>
+                <p class="price ml-auto">$500 <span>/day</span></p>
+              </div>
+              <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
+                  href="assets/img/car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
+            </div>
+          </div>
+        </div></ng-template>
+
+      <ng-template carouselSlide>
+        <div class="col-md-4">
+          <div class="car-wrap rounded ftco-animate">
+            <div class="img rounded d-flex align-items-end" >
+            </div>
+            <div class="text">
+              <h2 class="mb-0"><a href="assets/img/car-single.html">Mercedes Grand Sedan</a></h2>
+              <div class="d-flex mb-3">
+                <span class="cat">Cheverolet</span>
+                <p class="price ml-auto">$500 <span>/day</span></p>
+              </div>
+              <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
+                  href="assets/img/car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/car-2.jpg);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a href="car-single.html">Range Rover</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Subaru</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="col-md-4">
+          <div class="car-wrap rounded ftco-animate">
+            <div class="img rounded d-flex align-items-end" >
             </div>
-            <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
-                href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
+            <div class="text">
+              <h2 class="mb-0"><a href="assets/img/car-single.html">Mercedes Grand Sedan</a></h2>
+              <div class="d-flex mb-3">
+                <span class="cat">Cheverolet</span>
+                <p class="price ml-auto">$500 <span>/day</span></p>
+              </div>
+              <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
+                  href="assets/img/car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="car-wrap rounded ftco-animate">
-          <div class="img rounded d-flex align-items-end" style="background-image: url(assets/img/car-3.jpg);">
-          </div>
-          <div class="text">
-            <h2 class="mb-0"><a href="car-single.html">Mercedes Grand Sedan</a></h2>
-            <div class="d-flex mb-3">
-              <span class="cat">Cheverolet</span>
-              <p class="price ml-auto">$500 <span>/day</span></p>
-            </div>
-            <p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Book now</a> <a
-                href="car-single.html" class="btn btn-secondary py-2 ml-1">Details</a></p>
-          </div>
-        </div>
-      </div>
+      </ng-template>
+
+    </owl-carousel-o>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-- loader -->
 <div id="ftco-loader" [ngClass]="dataLoaded ? null : 'show fullscreen' "><svg class="circular" width="48px"

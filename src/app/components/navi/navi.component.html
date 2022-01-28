@@ -4,26 +4,26 @@
     <div class="row">
         <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
             <div class="d-inline-flex align-items-center">
-                <a class="text-body pr-3" href=""><i class="fa fa-phone-alt mr-2"></i>+090 850 345 6789</a>
+                <a class="text-body pr-3" ><i class="fa fa-phone-alt mr-2"></i>+090 850 345 6789</a>
                 <span class="text-body">|</span>
-                <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>huseyinafsin4@gmail.com</a>
+                <a class="text-body px-3"  ><i class="fa fa-envelope mr-2"></i>huseyinafsin4@gmail.com</a>
             </div>
         </div>
         <div class="col-md-6 text-center text-lg-right">
             <div class="d-inline-flex align-items-center">
-                <a class="text-body px-3" href="">
+                <a class="text-body px-3"  >
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a class="text-body px-3" href="">
+                <a class="text-body px-3"  >
                     <i class="fab fa-twitter"></i>
                 </a>
-                <a class="text-body px-3" href="">
+                <a class="text-body px-3"  >
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a class="text-body px-3" href="">
+                <a class="text-body px-3"  >
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a class="text-body pl-3" href="">
+                <a class="text-body pl-3"  >
                     <i class="fab fa-youtube"></i>
                 </a>
             </div>
@@ -37,7 +37,7 @@
 <div class="container-fluid position-relative nav-bar p-0">
     <div class="position-relative px-lg-5" style="z-index: 9;">
         <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-3 py-lg-0 pl-3 pl-lg-5">
-            <a href="" class="navbar-brand">
+            <a   class="navbar-brand">
                 <h1 class="text-uppercase text-primary mb-1">Royal Cars</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -45,42 +45,42 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                 <div class="navbar-nav ml-auto py-0">
-                    <a href="/home" class="nav-item nav-link active">Anasayfa</a>
-                    <a href="/car" class="nav-item nav-link">Arabalar</a>
-                    <a href="/about" class="nav-item nav-link">Hakkımızda</a>
-                    <a href="/contact" class="nav-item nav-link">İletişim</a>
+                    <a routerLink="/home" routerLinkActive="active" class="nav-item nav-link ">Anasayfa</a>
+                    <a routerLink="/car" routerLinkActive="active" class="nav-item nav-link">Arabalar</a>
+                    <a routerLink="/about" routerLinkActive="active" class="nav-item nav-link">Hakkımızda</a>
+                    <a routerLink="/contact" routerLinkActive="active" class="nav-item nav-link">İletişim</a>
                     <ul class="navbar-nav mr-right">
                       <li *ngIf="isLoggedIn | async; else notLoggedIn" class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-primary" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle text-primary"  routerLink="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <i class="far fa-user-circle"></i>{{" "+currentUser.name}}
                         </a>
                         <div  class="dropdown-menu" style="padding: 15px; padding-bottom: 10px; float: center;">
                           <a
                             class="dropdown-item"
-                            href="/profile"><span
+                             routerLink="/profile"><span
                             class="fas fa-user"></span> Profile</a>
                           <a
                             class="dropdown-item"
                             (click)="logOut()"
-                            href="/logout"><span
+                             routerLink="/logout"><span
                             class="fas fa-sign-out-alt"></span> Çıkış</a>
                         </div>
                       </li>
                       <ng-template #notLoggedIn>
                         <li  class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle text-primary" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                          <a class="nav-link dropdown-toggle text-primary"  routerLink="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
                           aria-haspopup="true" aria-expanded="false"> GİRİŞ YAp
                           </a>
                           <div  class="dropdown-menu" style="padding: 15px; padding-bottom: 10px; float: center;">
-                              <form  class="form-horizontal" [formGroup]="loginForm" method="post" accept-charset="UTF-8">
+                              <form  class="form-horizontal" [formGroup]="loginForm" accept-charset="UTF-8">
                                   <input class="form-control login" type="text" formControlName="email" name="email" placeholder="Username.." /><br>
                                   <input class="form-control login" type="password" formControlName="password" name="password" placeholder="Password.."/><br>
                                  <div style="padding:6px; ">
                                     <input class="btn btn-primary" (click)="login()" type="submit" name="submit" value="Giriş"
                                     [disabled]="!loginForm.valid"
                                     />
-                                    <input class="btn btn-secondary" routerLink="/register" type="submit" name="submit" value="Kayıt Ol" style="width: min-content;" />
+                                    <input class="btn btn-secondary" routerLink="/register" type="button" name="submit" value="Kayıt Ol" style="width: min-content; float: right;" />
                                   </div>
                               </form>
                           </div>

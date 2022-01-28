@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private toasterService : ToastrService) { }
 
   ngOnInit(): void {
   }
 
+  onSubmit(){
+    this.toasterService.success("Bizimle iletişim kurduğunuz için teşekürler. En kısa zamanda sizinle irtibata geçecez.","Teşekkürler")
+  }
 }

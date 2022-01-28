@@ -6,6 +6,8 @@ import { NgbPaginationModule, NgbAlertModule, NgbModule} from '@ng-bootstrap/ng-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 
 import { AppComponent } from './app.component';
 import { CarComponent } from './components/car/car.component';
@@ -19,23 +21,25 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
 import { ColorFilterPipe } from './pipes/color-filter.pipe';
 import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 import { CarFilterPipe } from './pipes/car-filter.pipe';
-import { RentalAddComponent } from './components/admin/rental-add/rental-add.component';
+import { RentalAddComponent } from './components/rental-add/rental-add.component';
 import { ColorListComponent } from './components/admin/color-list/color-list.component';
 import { BrandListComponent } from './components/admin/brand-list/brand-list.component';
 import { CarListComponent } from './components/admin/car-list/car-list.component';
 import { CarAddComponent } from './components/admin/car-add/car-add.component';
 import { CarEditComponent } from './components/admin/car-edit/car-edit.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SearchComponent } from './components/search/search.component';
+import { SearchComponent } from './components/car/search/search.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AdminComponent } from './components/admin/admin.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CardComponent } from './components/rental-add/card/card.component';
+import { PreOrderComponent } from './components/rental-add/pre-order/pre-order.component';
+import { PaymentSuccessComponent } from './components/rental-add/payment-success/payment-success.component';
 
 @NgModule({
   declarations: [
@@ -61,10 +65,12 @@ import { ProfileComponent } from './components/profile/profile.component';
     AboutComponent,
     ContactComponent,
     HomeComponent,
-    LoginComponent,
     RegisterComponent,
     AdminComponent,
     ProfileComponent,
+    CardComponent,
+    PreOrderComponent,
+    PaymentSuccessComponent
     ],
   imports: [
     BrowserModule,
@@ -77,9 +83,11 @@ import { ProfileComponent } from './components/profile/profile.component';
     NgbModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    CarouselModule,
     ToastrModule.forRoot({
       positionClass :'toast-bottom-right'
-    })
+    }),
+
   ],
   providers: [
     {

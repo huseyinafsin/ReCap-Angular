@@ -4,3 +4,10 @@ filterBar{
   height: 55px;
 }
 
+.btn{
+margin: 5%;
+}
+
+.btn-blue{
+  background-color: rgb(101, 101, 158);
+}

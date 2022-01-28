@@ -7,7 +7,7 @@ import {
 import { ToastrService } from 'ngx-toastr';
 import { CustomerForRegister } from 'src/app/models/customerForRegister';
 import { AuthService } from 'src/app/services/auth.service';
-import { LocalStrorageService } from 'src/app/services/local-strorage.service';
+import { LocalStrorageService } from 'src/app/services/local-storage.service';
 import { environment } from 'src/environments/environment';
 
 @Component({

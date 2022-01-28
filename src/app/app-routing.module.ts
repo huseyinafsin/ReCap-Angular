@@ -10,13 +10,13 @@ import { CarComponent } from './components/car/car.component';
 import { HomeComponent } from './components/home/home.component';
 import { ColorListComponent } from './components/admin/color-list/color-list.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { RentalAddComponent } from './components/admin/rental-add/rental-add.component';
+import { RentalAddComponent } from './components/rental-add/rental-add.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { CustomerListComponent } from './components/admin/customer-list/customer-list.component';
 import { ProfileComponent } from './components/profile/profile.component';
-
+import { PreOrderComponent } from './components/rental-add/pre-order/pre-order.component';
+import { PaymentSuccessComponent } from './components/rental-add/payment-success/payment-success.component';
 const routes: Routes = [
     {path:"",pathMatch:"full",component:HomeComponent},
     {path:"home",pathMatch:"full",component:HomeComponent},
@@ -32,12 +32,13 @@ const routes: Routes = [
     {path:"brands",component:BrandListComponent},
     {path:"brand/:brandId",component:CarComponent},
     {path:"color/:colorId",component:CarComponent},
-    {path:"cars/details/:carId",component:CarDetailComponent},
+    {path:"car/details/:carId",component:CarDetailComponent},
     {path:"brand/:brandId/color/:colorId",component:CarComponent},
     {path:"rentals",component:RentalComponent},
     {path:"rentals/rent/:id",component: RentalAddComponent},
-    {path:"login",component: LoginComponent},
-    {path:"register",component: RegisterComponent}
+    {path:"rental/details/:id",component: PreOrderComponent},
+    {path:"register",component: RegisterComponent},
+    {path:"payment-success",component: PaymentSuccessComponent}
 
 ]
 

@@ -1,0 +1,170 @@
+<div class="container">
+  <div class="row m-0">
+    <div class="col-lg-7 pb-5 pe-lg-5">
+      <div class="row">
+        <div class="image-border">
+          <img [src]="apiUrl + car?.images[0].imagePath" alt="" />
+        </div>
+        <div class="row m-0 bg-light">
+          <div class="col-md-4 col-6 ps-30 pe-0 my-4">
+            <p class="text-muted">Marka</p>
+            <p class="h5">{{ car?.brandName }}</p>
+          </div>
+          <div class="col-md-4 col-6 ps-30 my-4">
+            <p class="text-muted">Model</p>
+            <p class="h5 m-0">{{ car?.carName }}</p>
+          </div>
+          <div class="col-md-4 col-6 ps-30 my-4">
+            <p class="text-muted">Model Yılı</p>
+            <p class="h5 m-0">{{ car?.modelYear }}</p>
+          </div>
+          <div class="col-md-4 col-6 ps-30 my-4">
+            <p class="text-muted">Renk</p>
+            <p class="h5 m-0">{{ car?.colorName }}</p>
+          </div>
+          <div class="col-md-4 col-6 ps-30 my-4">
+            <p class="text-muted">Günlük Kira</p>
+            <p class="h5 m-0">
+              {{ car?.dailyPrice }}<span class="ps-1">₺</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-5 p-0 ps-lg-4">
+      <div class="row m-0">
+        <div class="col-12 px-4">
+          <div class="d-flex align-items-end mt-4 mb-2">
+            <p class="h4 m-0">
+              <span class="pe-1">{{ car?.brandName }}</span
+              ><span class="pe-1"> - </span
+              ><span class="pe-1">{{ car?.carName }}</span>
+            </p>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <p class="textmuted">Gün Sayısı</p>
+            <p class="fs-14 fw-bold">{{ numberOfDay }}</p>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <p class="textmuted">Ara Toplam</p>
+            <p class="fs-14 fw-bold">{{ subAmount }} ₺</p>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <p class="textmuted">KDV Oranı</p>
+            <p class="fs-14 fw-bold">{{ vat }}</p>
+          </div>
+          <div class="d-flex justify-content-between mb-2">
+            <p class="textmuted">KDV Tutarı</p>
+            <p class="fs-14 fw-bold">+{{ vatAdded }} ₺</p>
+          </div>
+          <div class="d-flex justify-content-between mb-3">
+            <p class="textmuted fw-bold">Toplam</p>
+            <div class="d-flex align-text-top">
+              <span class="h4">{{ totalAmount }} ₺</span>
+            </div>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button
+            *ngIf="newCardMode"
+            class="btn btn-blue"
+            type="button"
+            (click)="onChange()"
+            style="margin-bottom: 5px"
+            data-toggle="dropdown"
+          >
+            <i class="fas fa-credit-card"></i>
+            Kayıtlı Kartlarım
+          </button>
+          <button
+            *ngIf="!newCardMode"
+            class="btn btn-green"
+            type="button"
+            style="margin-bottom: 5px"
+            (click)="onChange()"
+            data-toggle="dropdown"
+          >
+            <i class="fas fa-plus-circle"></i>
+            Yeni Kart Ekle
+          </button>
+        </div>
+        <hr />
+        <div *ngIf="newCardMode; else selectCard" class="col-12 px-0">
+          <div class="row bg-light m-0">
+            <div class="col-12 px-4 my-4">
+              <p class="fw-bold">Ödeme Ekle</p>
+            </div>
+            <div class="col-12 px-4">
+              <form [formGroup]="creditCardForm">
+                <div class="d-flex mb-4">
+                <span class="">
+                  <p class="text-muted">Kart numarası</p>
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder="XXXX XXXX XXXX XXXX"
+                    formControlName="cardNumber"
+                  />
+                </span>
+                <div class="w-100 d-flex flex-column align-items-end">
+                  <p class="text-muted">Ay</p>
+                  <input
+                    class="form-control2"
+                    type="text"
+                    placeholder="MM"
+                    formControlName="expireMonth"
+
+                  />
+                </div>
+                <div class="w-100 d-flex flex-column align-items-end">
+                  <p class="text-muted">Yıl</p>
+                  <input
+                    class="form-control2"
+                    type="text"
+                    placeholder="YYYY"
+                    formControlName="expireYear"
+                  />
+                </div>
+              </div>
+              <div class="d-flex mb-5">
+                <span class="me-5">
+                  <p class="text-muted">Kart üzerindeki isim</p>
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Hüseyin AFŞİN"
+                    formControlName="cardHolderFullName"
+                  />
+                </span>
+                <div class="w-100 d-flex flex-column align-items-end">
+                  <p class="text-muted">CVC</p>
+                  <input
+                    class="form-control3"
+                    type="text" placeholder="XXX"
+                    formControlName="cvc" />
+                </div>
+              </div>
+              </form>
+
+
+            </div>
+          </div>
+        </div>
+        <ng-template #selectCard>
+          <app-card
+            [customerId]="currentCustomer.customerId"
+            (selectedCardId)="getSelectedCard($event)"
+          ></app-card>
+        </ng-template>
+        <div class="row m-0">
+          <div class="col-12 mb-4 p-0">
+            <div class="btn btn-primary">
+              (click)="onRent()"
+              Kirala<span class="fas fa-arrow-right ps-2"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

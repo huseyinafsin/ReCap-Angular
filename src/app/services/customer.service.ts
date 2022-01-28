@@ -41,6 +41,10 @@ export class CustomerService {
     let path = `${this.apiServiceUrl}/getdetailsbymail?email=${email}`
     return this.httpClient.get<SingleResponseModel<CustomerDetail>>(path);
   }
+  getFindexScore(customerId:number):Observable<number>{
+    let path = `${this.apiServiceUrl}/getfindexscore?customerId=${customerId}`
+    return this.httpClient.get<number>(path);
+  }
 
   delete(customer : Customer){
     let path = `${this.apiServiceUrl}/delete`

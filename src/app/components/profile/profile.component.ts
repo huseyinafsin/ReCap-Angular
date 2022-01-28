@@ -63,7 +63,7 @@ export class ProfileComponent implements OnInit {
 
         let customer:Customer ={
           id:this.customerDetail.customerId,
-          FindexScore: this.customerDetail.findexScore,
+          findexScore: this.customerDetail.findexScore,
           userId : this.customerDetail.userId,
           companyName : this.customerDetail.companyName
         }

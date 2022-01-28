@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CreditCard } from '../models/creditCard';
+import { ListResponseModel } from '../models/listResponseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
@@ -21,4 +22,19 @@ export class CreditCardService {
     return this.httpClient.post<SingleResponseModel<number>>(path,creditCardNumber)
   }
 
+
+  getCardsByCustomerId(customerId:number){
+    let path = `${this.apiServiceUrl}/getcardsbycustomerId?customerId=${customerId}`
+    return this.httpClient.get<ListResponseModel<CreditCard>>(path)
+  }
+
+  getCard(cardId:number) :Observable<SingleResponseModel<CreditCard>>{
+    let path = `${this.apiServiceUrl}/getbyid?creditCardId=${cardId}`
+    return this.httpClient.get<SingleResponseModel<CreditCard>>(path)
+  }
+
+  saveCreditCard(customerId:number , cardNumber:string){
+    let path = `${this.apiServiceUrl}/savecreditcard?customerId=${customerId}&&cardNumber=${cardNumber}`
+    return this.httpClient.get<SingleResponseModel<boolean>>(path);
+  }
 }

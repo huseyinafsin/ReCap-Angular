@@ -1,0 +1,35 @@
+<div class="container-fluid bg-white pt-3 px-lg-4">
+  <div class="row mx-n2">
+    <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+      <div class="date mb-3" id="date" data-target-input="nearest">
+        <input type="text" [(ngModel)]="filterTextBrand" class="form-control p-4 " placeholder="Marka arayın" />
+      </div>
+  </div>
+  <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+      <div class="text mb-3" id="text" data-target-input="nearest">
+          <input type="text" [(ngModel)]="filterTextColor"  (ngModelChange)="onSearchColor()" class="form-control p-4 " placeholder="Renk arayın" />
+      </div>
+  </div>
+      <div  class="col-xl-2 col-lg-4 col-md-6 px-2">
+          <select  [(ngModel)]="selectedBrand"  class="custom-select px-4 mb-3" style="height: 50px;">
+              <option selected>Select a Brand</option>
+              <option *ngFor="let brand of brands"  value="{{brand.id}}"> {{brand.name}}</option>
+          </select>
+      </div>
+      <div  class="col-xl-2 col-lg-4 col-md-6 px-2">
+          <select  [(ngModel)]="selectedColor"  class="custom-select px-4 mb-3" style="height: 50px;">
+              <option selected>Select a Color</option>
+              <option *ngFor="let color of colors"  value="{{color.id}}"> {{color.name}}</option>
+          </select>
+      </div>
+
+      <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+        <div class="date mb-3" id="date" data-target-input="nearest">
+          <input type="date" [(ngModel)]="filterTextBrand" class="form-control p-4 " placeholder="Marka arayın" />
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-4 col-md-6 px-2">
+          <button class="btn btn-primary btn-block mb-3" type="submit" style="height: 50px;">Search</button>
+      </div>
+  </div>
+</div>

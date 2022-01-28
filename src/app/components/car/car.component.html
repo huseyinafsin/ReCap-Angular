@@ -1,4 +1,4 @@
-
+<app-search ></app-search>
 <div class="container-fluid py-5">
   <div class="container pt-5 pb-3">
       <h1 class="display-4 text-uppercase text-center mb-5">Arabalar</h1>
@@ -17,11 +17,18 @@
                           <span>{{car.colorName}}</span>
                       </div>
                       <div class="px-2">
-                          <i class="fas fa-star-half-alt"></i>
+                          <i class="fas text-primary fa-star-half-alt"></i>
                           <span>{{car.minFindexScore}}</span>
                       </div>
                   </div>
-                  <a class="btn btn-primary px-3" href="">₺{{car.dailyPrice}}/Day</a>
+                  <div class="d-flex justify-content-center mb-4">
+                    <div class="px-2">
+
+                       <h4><span ><i class="fas fa-lira-sign"></i> {{car.dailyPrice}}</span></h4>
+                      </div>
+                  </div>
+                  <a class="btn btn-primary px-3" [routerLink]="'/rental/details/'+car.id"> Kirala</a>
+                  <a class="btn btn-secondary btn-blue px-3" [routerLink]="'/car/details/'+car.id">İncele</a>
               </div>
           </div>
       </div>

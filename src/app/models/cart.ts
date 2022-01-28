@@ -1,4 +1,3 @@
-import { CreditCard } from "./creditCard";
 
 export interface Cart{
   cardHolderFullName:string
@@ -6,6 +5,7 @@ export interface Cart{
   expiredYear:string
   expiredMonth:string
   cvc:string
+  carId:number
   customerId:number
   rentDate:Date
   returnDate:Date

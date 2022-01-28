@@ -26,6 +26,9 @@ export class CarComponent implements OnInit {
   filterBrandId : number = 0
   filterColorId : number = 0
   dataLoaded:boolean = false
+  filteredColorText:string
+  filteredBrandText:string
+
 
 
   constructor(private carService:CarService,

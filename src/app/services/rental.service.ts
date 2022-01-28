@@ -1,12 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Cart } from '../models/cart';
 import { ListResponseModel } from '../models/listResponseModel';
-import { Rental } from '../models/rental';
 import { RentalDto } from '../models/rentalDto';
-import { ResponseModel } from '../models/responseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
@@ -15,7 +13,6 @@ import { SingleResponseModel } from '../models/singleResponseModel';
 export class RentalService {
 
   apiServiceUrl:string = `${environment.apiUrl}/rentals`
-
   constructor(private httpClient:HttpClient) { }
 
   getRentals():Observable<ListResponseModel<RentalDto>>{

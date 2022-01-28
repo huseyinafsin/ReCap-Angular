@@ -22,4 +22,5 @@ export class HomeComponent implements OnInit {
       this.cars = response.data;
     })
   }
+
 }

@@ -20,7 +20,7 @@
                           <textarea class="form-control py-3 px-4" rows="5" placeholder="Mesaj" required="required"></textarea>
                       </div>
                       <div>
-                          <button class="btn btn-primary py-3 px-5" type="submit">Gönder</button>
+                          <button (click)="onSubmit()" class="btn btn-primary py-3 px-5" type="submit">Gönder</button>
                       </div>
                   </form>
               </div>
@@ -54,3 +54,9 @@
       </div>
   </div>
 </div>
+<div class="row justify-content-center">
+    <div id="map" class="bg-white" style="position: relative;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d770809.0860158126!2d28.45174621544522!3d41.003964328513874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa7040068086b%3A0xe1ccfe98bc01b0d0!2zxLBzdGFuYnVs!5e0!3m2!1sen!2str!4v1643194360467!5m2!1sen!2str" float="margin-left:%50"  width="100%" height="450" style="border: 2px;;" allowfullscreen="true" loading="lazy"></iframe>
+  </div>
+</div>
+
